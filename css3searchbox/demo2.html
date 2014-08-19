@@ -1,0 +1,185 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+  <meta charset=utf-8 /> 
+  <title>CSS3 Search Box</title> 
+  <link media="screen" rel="stylesheet" href="demo-style.css" /> 
+<style>
+#demo-wrapper {
+    background:#555555;
+    margin: 80px auto 100px;
+    overflow: hidden;
+    padding: 10px;
+    width: 550px;
+    border-radius: 30px 30px 30px 30px;
+  border: 1px solid #444444;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5), 0 1px 3px rgba(255, 255, 255, 0.2) inset;
+}
+
+/* Dark Search Box */
+
+
+#dark {
+   /*height: 28px;*/
+   padding: 40px 160px;
+   background:#555;
+}
+
+#dark #search {
+   
+
+}
+
+#dark #search input[type="text"] {
+    background: url(ico_search_16_n.png) no-repeat 276px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    box-shadow:0px 0px 10px 0px rgba(17, 17, 17, 1);
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #bebebe;
+    width: 264px;
+    padding: 6px 24px 6px 12px;
+    border-radius: 3px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#dark #search input[type="text"]:focus {
+    border:1px solid #00a2e8;
+    background-color: #eeeeee;
+    }
+
+
+
+
+/* White Search Box */
+
+
+
+#white {
+   /*height: 28px;*/
+   padding: 40px 160px;
+}
+
+#white #search {
+
+
+}
+
+#white #search input[type="text"] {
+    background: url(ico_search_16_n.png) no-repeat 276px 9px #444;
+    border: 1px solid #000000;
+    box-shadow:0px 0px 10px 0px rgba(17, 17, 17, 1);
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #777;
+    width: 264px;
+    padding: 6px 24px 6px 12px;
+    border-radius: 3px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#white #search input[type="text"]:focus {
+    border:1px solid #916636;
+    background-color: #553603;
+    }
+
+
+
+/* Apple-like Search Box */
+
+
+#apple {
+   height: 28px;
+   padding: 40px 160px;
+   background:#555;
+}
+
+#apple #search {
+
+}
+
+#apple #search input[type="text"] {
+    background: url(../images/search-white.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #d7d7d7;
+    width:150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); 
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#apple #search input[type="text"]:focus {
+    background: url(../images/search-dark.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 200px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+
+</style>
+</head>
+
+<body>
+
+
+ 
+  
+  
+
+<div id="demo-wrapper">
+
+<div id="dark">
+<form method="get" action="/search" id="search">
+  <input name="q" type="text" size="40" placeholder="Search..." />
+</form>
+</div>
+
+
+<div id="white">
+<form method="get" action="/search" id="search">
+  <input name="q" type="text" size="40" placeholder="Search..." />
+</form>
+</div>
+
+
+<div id="apple">
+<form method="get" action="/search" id="search">
+  <input name="q" type="text" size="40" placeholder="Search..." />
+</form>
+</div>
+
+</div>
+
+  
+
+</body>
+</html>
