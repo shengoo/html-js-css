@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>自动转换为下拉列表的网站导航栏</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<style>
+#autocollapse .menu{
+  display: none;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+#autocollapse.collapsed .menu{
+  display: block;
+}
+.nav{
+  border-bottom: 1px solid #ededed;
+  border-top: 1px solid #ededed;
+  margin: 0;
+  padding: 0;
+}
+.nav>li{
+  display: inline-block;
+  text-align: center;
+}
+.nav>li>a {
+display: block;
+padding: 10px 15px;
+}
+
+#autocollapse.collapsed .nav{
+  display: none;
+}
+#autocollapse.collapsed.active .nav{
+  display: block;
+}
+#autocollapse.collapsed .nav>li{
+  display: block;
+}
+
+</style>
+<script type="text/javascript">
+
+function autocollapse() {
+    var navbar = $('#autocollapse');
+    navbar.removeClass('collapsed'); // 默认
+    if(navbar.innerHeight() > 50) //  超过一行
+        navbar.addClass('collapsed'); // 换成下拉列表
+}
+
+
+$(function(){
+  autocollapse();
+  $("#autocollapse .menu").click(function(){
+    $("#autocollapse").toggleClass("active")
+  });
+
+  window.onresize = autocollapse;
+});
+
+</script>
+</head>
+<body>
+<nav id="autocollapse">
+<a class="menu">Menu</a>
+<ul class="nav" id="nav">
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+</ul>
+</nav>
+
+</body>
+</html>
