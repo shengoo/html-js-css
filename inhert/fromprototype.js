@@ -1,14 +1,14 @@
 
 function A(){
-	this.fa = function(){
-		console.log("function in A");
-	}
+  this.fa = function(){
+    console.log("function in A");
+  }
 }
 
 function B(){
-	this.fb = function(){
-		console.log("function in B");
-	}
+  this.fb = function(){
+    console.log("function in B");
+  }
 }
 
 var a = new A();
@@ -24,4 +24,4 @@ var b = new B();
 b.fa(); //function in A
 b.fb(); //function in B
 console.log(b instanceof A)//true
-console.log(b instanceof B)
+console.log(b instanceof B)//true
