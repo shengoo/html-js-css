@@ -25,4 +25,6 @@ Function.prototype.getName = function(){
 	return this.name = this.toString().match(/function\s*([^(]*)\(/)[1];
 }
 
-console.log(classof("a"))
+console.log(type("a"));
+var o = new Object("a")
+console.log(o)
