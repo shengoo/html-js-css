@@ -20,3 +20,5 @@ B.prototype.b = "valueFromB";
 var inst = new B();
 console.log(inst.a); //valueFromA
 console.log(inst.b); //valueFromB;
+
+

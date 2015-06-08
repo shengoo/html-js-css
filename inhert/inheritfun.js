@@ -10,6 +10,8 @@ function B(){
   }
 }
 
-B.prototype = A.prototype;
+// B.prototype = A.prototype;
+B.prototype = new A();
 var b = new B();
+b.fa();
 b.fb();
