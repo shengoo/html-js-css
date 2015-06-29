@@ -15,4 +15,5 @@ var obj2 = {
   }
 };
 
-obj2.fun(obj1.fun,obj2.fun)
+obj2.fun(obj1.fun,obj2.fun)//1 undefined
+obj1.fun();
