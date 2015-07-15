@@ -1,6 +1,6 @@
 Number.prototype.times = function(f,context){
 	console.log(f.toString());
-	console.log(this.toString())
+	console.log(this)
 	var n = Number(this);
 	for(var i = 0;i<n;i++){
 		f.call(context,i);
