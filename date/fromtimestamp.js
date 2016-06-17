@@ -15,3 +15,5 @@ console.log(d3.getTime()==d4.getTime())
 var a = "13636252.362";
 var b = 13636252.362;
 console.log(parseFloat(a))
+
+console.log(new Date('2016-03-01T00:00:00'))
