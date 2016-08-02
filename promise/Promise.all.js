@@ -30,3 +30,4 @@ Promise.all([p1, p2, p3, p4, p5]).then(function(value) {
 }, function(reason) {
   console.log(reason)
 });
+
