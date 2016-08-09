@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Spark canvas test</title>
+</head>
+<body>
+
+	<canvas id="square">
+	</canvas>
+	<script>
+		var data = [1,3,2,7,4];
+var padding = 10;
+
+		var canvas = document.getElementById('square');
+		var width = canvas.width - padding*2;
+		var height = canvas.height - padding*2;
+		var min = Math.min.apply(Math,data);
+		var max = Math.max.apply(Math,data);
+		var context = canvas.getContext('2d');
+		for(var i = 0,length = data.length;i<length;i++){
+			var x = width*i/(length-1)+padding;
+			var y = (max-data[i])*height/(max - min)+padding;
+			context.lineTo(x,y);
+			console.log('lineTo:' + x + ',' + y)
+		}
+		context.strokeStyle='red';
+		context.stroke();
+	</script>
+</body>
+</html>
