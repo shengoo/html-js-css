@@ -107,3 +107,6 @@ var formatCloumns = columns.reduce(function (previousValue, currentValue, curren
         return previousValue;
 }, []);
 console.log(formatCloumns)
+
+
+
