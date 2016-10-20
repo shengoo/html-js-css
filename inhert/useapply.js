@@ -1,4 +1,5 @@
 function A(name,age){
+  console.log(arguments)
   this.name = name + "a";
   this.age = age + 2;
   this.fa = function(){
@@ -7,7 +8,7 @@ function A(name,age){
 }
 
 function B(name,age){
-  A.apply(this,[name,age]);
+  A.apply(this,arguments);
   this.name = name + "b";
   this.age = age;
   // A.apply(this,[name,age]);
@@ -23,6 +24,6 @@ function B(name,age){
 }
 var a = new A("a",2);
 a.fa();
-var b = new B("a",2);
+var b = new B("b",3);
 b.fa();
 b.fb();
