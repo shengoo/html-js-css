@@ -30,3 +30,4 @@ console.log(data.find(function(property) {
 	console.log(property)
 	return property.Name == 'Name'
 }).Value.replace('CN, CIA Real Estate Transaction Data, Area, ', ''));
+
