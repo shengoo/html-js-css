@@ -29,3 +29,16 @@ function show(f) {
 }
 
 show(fn);//10
+
+
+var a = '3.77947E+11';
+console.log(parseFloat(a))
+
+var b = 1.2;
+console.log(parseFloat(b))
+
+var d = "2016/10/31";
+console.log(new Date(d).valueOf())
+
+var j = {"date":"2016/9/30","value":""};
+console.log(j.value)

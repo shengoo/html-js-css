@@ -19,15 +19,19 @@ var data = [{
 	yw: 7
 }];
 
-var result = {};
+var temp = {},
+	result = [];
 data.forEach(function(item) {
-	if (result[item.sdate]  ) {
-		if (item.yw !== 0 && result[item.sdate].yw === 0) {
-			result[item.sdate] = item;
+	if (temp[item.sdate]) {
+		if (item.yw !== 0 && temp[item.sdate].yw === 0) {
+			temp[item.sdate] = item;
 		}
 	} else {
-		result[item.sdate] = item;
+		temp[item.sdate] = item;
 	}
 });
+for (var prop in temp) {
+	result.push(temp[prop])
+}
 
 console.log(result);
