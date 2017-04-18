@@ -19,3 +19,6 @@ console.log(parseFloat(a))
 console.log(new Date('2016-03-01T00:00:00'))
 
 console.log(Date.UTC(2016, 9, 21))
+
+// 
+console.log(new Date('2016-03-01').valueOf()/1000)
