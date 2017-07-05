@@ -7,4 +7,3 @@ if(a){
 }else{
 	console.log("new Boolean(false) is false")
 }
-
