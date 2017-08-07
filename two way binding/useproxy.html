@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>View to model</title>
+</head>
+<body>
+	<div>
+		<input bind-to="name" />
+		<input bind-to="name" />
+	</div>
+	<span>#name#</span>
+	<span>#name#</span>
+	<button onclick="reset()">reset</button>
+	<script type="text/javascript">
+		
+		var handler = {
+    		set: function(target, key, value, receiver) {
+		        target[key] = value;
+				updateView(propertyName);
+		        return Reflect.set(target, key, value);
+		    },
+		};
+		var model = new Proxy({}, handler);
+		var inputs = {},views = {};
+		var all = document.all;
+		for(var i=0,l=all.length;i<l;i++){
+			// find all input with property binded to
+			if(all[i].getAttribute('bind-to')){
+				var dom = all[i];
+				var propertyName = dom.getAttribute('bind-to');
+				inputs[propertyName] = inputs[propertyName] ? inputs[propertyName] : [];
+				views[propertyName] = views[propertyName] ? views[propertyName] : [];
+				inputs[propertyName].push(dom);
+				dom.addEventListener('change',function function_name(e) {
+					var propertyName = e.target.getAttribute('bind-to');
+					model[propertyName] = e.target.value;
+				})
+			}
+			// find all model driven elements
+			// use regex to get better performance
+			if(all[i].innerHTML && all[i].innerHTML.length>2 &&
+				all[i].innerHTML[0] == '#' &&
+				all[i].innerHTML[all[i].innerHTML.length-1] == '#'){
+				var propertyName = all[i].innerHTML.slice(1,all[i].innerHTML.length-1);
+				inputs[propertyName] = inputs[propertyName] ? inputs[propertyName] : [];
+				views[propertyName] = views[propertyName] ? views[propertyName] : [];
+				views[propertyName].push(all[i]);
+			}
+		}
+		function updateView(propertyName) {console.log('update ' + propertyName);
+			if(views[propertyName]){
+				for(var i = 0,l = views[propertyName].length;i < l;i++){
+					views[propertyName][i].innerText = model[propertyName];
+				}
+			}
+			if(inputs[propertyName]){
+				for(var i = 0,l = inputs[propertyName].length;i < l;i++){
+					inputs[propertyName][i].value = model[propertyName];
+				}
+			}
+		}
+		function reset() {
+			for(var name in model){
+				model[name] = '';
+			}
+		}
+	</script>
+</body>
+</html>
