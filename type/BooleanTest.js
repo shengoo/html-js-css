@@ -11,3 +11,5 @@ if(a){
 }else{
     console.log("new Boolean(false) is false")
 }
+var xx = [];
+console.log(typeof xx)

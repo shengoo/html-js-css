@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>View to model</title>
+</head>
+<body>
+	<div>
+		<input bind-to="name" />
+		<input bind-to="name2" />
+	</div>
+	<span>#name#</span>
+	<span>#name#</span>
+	<script type="text/javascript">
+		
+		var model = {};
+		var all = document.all;
+		for(var i=0,l=all.length;i<l;i++){
+			// find all input with property binded to
+			if(all[i].getAttribute('bind-to')){
+				var dom = all[i];
+				var propertyName = dom.getAttribute('bind-to');
+				if(!model[propertyName]){
+					model[propertyName]={
+						inputs : [],
+						views : []
+					};
+				}
+				model[propertyName].inputs.push(dom);
+				dom.addEventListener('change',function function_name(e) {
+					var propertyName = e.target.getAttribute('bind-to');
+					model[propertyName].value = e.target.value;
+					updateView(propertyName);
+				})
+			}
+			// find all model driven elements
+			// use regex to get better performance
+			if(all[i].innerHTML && all[i].innerHTML.length>2 &&
+				all[i].innerHTML[0] == '#' &&
+				all[i].innerHTML[all[i].innerHTML.length-1] == '#'){
+				var propertyName = all[i].innerHTML.slice(1,all[i].innerHTML.length-1);
+				if(!model[propertyName]){
+					model[propertyName]={
+						inputs : [],
+						views : []
+					};
+				}
+				model[propertyName].views.push(all[i]);
+			}
+		}
+		function updateView(propertyName) {console.log(model[propertyName].views)
+			if(model[propertyName].views){
+				for(var i = 0,l = model[propertyName].views.length;i < l;i++){
+					model[propertyName].views[i].innerText = model[propertyName].value;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

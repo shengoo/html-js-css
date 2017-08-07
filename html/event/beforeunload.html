@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		window.addEventListener("beforeunload", function (e) {
+			console.log('beforeunload')
+			var confirmationMessage = "a a a ";
+
+  			e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+  			return confirmationMessage;  
+  			// e.preventDefault();
+		});
+</script>
+</body>
+</html>
