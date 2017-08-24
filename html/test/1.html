@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<button>按体重排序</button>
+<button>按体重排序</button>
+
+<table>
+<tbody id="tbody">
+
+</tbody>	
+</table>
+
+
+<script>
+	var persons = [{"name":"name0","age":53,"weight":18},{"name":"name1","age":3,"weight":40},{"name":"name2","age":11,"weight":35},{"name":"name3","age":53,"weight":52},{"name":"name4","age":0,"weight":12},{"name":"name5","age":52,"weight":28},{"name":"name6","age":21,"weight":39},{"name":"name7","age":34,"weight":41},{"name":"name8","age":36,"weight":54},{"name":"name9","age":58,"weight":47}]
+	persons.forEach(function(row){
+    	var newrow = document.createElement('tr');
+    	var name = document.createElement('td');
+    	name.innerHTML = row.name;
+    	var age = document.createElement('td');
+    	age.innerHTML = row.age;
+    	var weight = document.createElement('td');
+    	weight.innerHTML = row.weight;
+    	newrow.appendChild(name);
+    	newrow.appendChild(age);
+    	newrow.appendChild(weight);
+		document.getElementById("tbody").appendChild(newrow);
+    });
+</script>
+	
+</body>
+</html>
