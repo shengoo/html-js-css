@@ -1,15 +1,15 @@
 var date = new Date();
-console.log(date.toString());
-console.log(date.toLocaleDateString());
-console.log(date.toTimeString())
-console.log(date.toDateString())
-console.log(date.toGMTString())
+console.log(date.toString()); //Wed Oct 18 2017 10:08:19 GMT+0800 (China Standard Time)
+console.log(date.toLocaleDateString()); // 2017-10-18
+console.log(date.toTimeString()) // 10:08:19 GMT+0800 (China Standard Time)
+console.log(date.toDateString()) // Wed Oct 18 2017
+console.log(date.toGMTString()) // Wed, 18 Oct 2017 02:08:19 GMT
 console.log(date.toISOString())
 console.log(date.toJSON())
 console.log(date.toUTCString())
 console.log(date.toLocaleDateString())
 // console.log(date.toLocaleFormat())
-console.log(date.toLocaleString())
+console.log(date.toLocaleString()) // 2017-10-18 10:08:19
 console.log(date.toLocaleTimeString())
 // console.log(date.toSource())
 
@@ -32,4 +32,3 @@ var utcSeconds = g.getUTCSeconds();
 var e = new Date(); // The 0 there is the key, which sets the date to the epoch
 e.setUTCSeconds(utcSeconds);
 console.log(e.toString())
-
