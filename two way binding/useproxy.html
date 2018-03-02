@@ -6,26 +6,32 @@
 </head>
 <body>
 	<div>
+        <!-- 使用'bind-to'的属性来标记这个输入框里的值会对Model里的属性进行修改 -->		
 		<input bind-to="name" />
 		<input bind-to="name" />
 	</div>
+	<!-- 使用#属性名#来把Model里的值映射到DOM中 -->
 	<span>#name#</span>
 	<span>#name#</span>
 	<button onclick="reset()">reset</button>
 	<script type="text/javascript">
 		
 		var handler = {
+			// 拦截属性的设置，触发试图的更新
     		set: function(target, key, value, receiver) {
 		        target[key] = value;
 				updateView(propertyName);
 		        return Reflect.set(target, key, value);
 		    },
 		};
+		// 双向绑定的对象
 		var model = new Proxy({}, handler);
+		// 双向绑定列表
 		var inputs = {},views = {};
 		var all = document.all;
+		// 遍历所有DOM元素
 		for(var i=0,l=all.length;i<l;i++){
-			// find all input with property binded to
+			// 找到所有有bind-to的输入框
 			if(all[i].getAttribute('bind-to')){
 				var dom = all[i];
 				var propertyName = dom.getAttribute('bind-to');
@@ -37,8 +43,7 @@
 					model[propertyName] = e.target.value;
 				})
 			}
-			// find all model driven elements
-			// use regex to get better performance
+			// 找到所有model驱动的页面元素
 			if(all[i].innerHTML && all[i].innerHTML.length>2 &&
 				all[i].innerHTML[0] == '#' &&
 				all[i].innerHTML[all[i].innerHTML.length-1] == '#'){
@@ -48,6 +53,7 @@
 				views[propertyName].push(all[i]);
 			}
 		}
+		// 更新View
 		function updateView(propertyName) {console.log('update ' + propertyName);
 			if(views[propertyName]){
 				for(var i = 0,l = views[propertyName].length;i < l;i++){
