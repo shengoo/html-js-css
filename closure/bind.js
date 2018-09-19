@@ -10,7 +10,12 @@ class Foo {
   }
   asyncGreet () {
     this.someThingAsync()
-    .then(this.greet)// .bind(this)
+    .then(this.greet)
+    .catch(e => {
+      console.log(e)
+    });
+    // .then(this.greet.bind(this))
+    // .then(() => this.greet())
   }
 }
 new Foo('dog').asyncGreet()
