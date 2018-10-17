@@ -13,7 +13,7 @@ function LetterCapitalize(str) {
    
 // keep this function call here 
 // to see how to enter arguments in JavaScript scroll down
-LetterCapitalize("hello world");
+console.log(LetterCapitalize("hello world"));
 var a = [[ 'a','b' ]];
 //a[0] = [];
 //a[0][0] = "a";
